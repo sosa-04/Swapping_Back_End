@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @CrossOrigin(origins = "*") // Permitir solicitudes desde Live Server
 
-
 @RestController
 @RequestMapping("/api")
 public class categoriasController {

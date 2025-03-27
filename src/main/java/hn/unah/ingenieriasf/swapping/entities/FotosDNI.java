@@ -1,31 +1,28 @@
 package hn.unah.ingenieriasf.swapping.entities;
 
-import java.util.List;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.Data;
 
 @Entity
 @Data
-@Table(name = "categorias")
-public class Categorias {
-
+@Table(name = "fotosdni")
+public class FotosDNI {
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "idcategoria")
-    private Long idcategoria;
+    @Column(name = "idfotosdni")
+    private long idfotosdni;
 
-    private String nombre;
+    private String url;
 
-    
-    @OneToMany(mappedBy = "categoria")
-    private List<Productos> productos;
+    @ManyToOne
+    @JoinColumn(name = "idusuario", referencedColumnName = "idusuario")
+    private Usuarios usuario;
 }

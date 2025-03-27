@@ -12,7 +12,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 
-@CrossOrigin(origins = "http://127.0.0.7:5500") // Permitir solicitudes desde Live Server
+@CrossOrigin(origins = "*") // Permitir solicitudes desde Live Server
+
 
 @RestController
 @RequestMapping("/api")

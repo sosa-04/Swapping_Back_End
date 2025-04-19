@@ -26,4 +26,9 @@ public class productosServiceImpl implements productosService {
         Categorias categoria = CategoriasRepositorie.findById(idCategoria).get();
         return this.ProductosRepositorie.findByCategoria(categoria);
     }
+
+    @Override
+    public Productos productosXid(Long idproducto) {
+        return this.ProductosRepositorie.findById(idproducto).get();
+    }
 }

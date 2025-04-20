@@ -26,13 +26,6 @@ public class usuariosController {
         return this.UsuariosServiceImpl.crearUsuario(usuario);
     }
 
-
-    @GetMapping("/usuarios/iniciarSecion")
-    public Usuarios iniciarSecion( Login login  ) {
-        return this.UsuariosServiceImpl.iniciarSecion ( login );
-    }
-
-   
 /*Debe ser una solicitud Post
     @GetMapping("/usuarios/iniciarSecion")
     public Usuarios iniciarSecion( Login login  ) {
@@ -41,9 +34,10 @@ public class usuariosController {
 
 */    
 
-@PostMapping("/usuarios/iniciarSesion")
-public Usuarios iniciarSesion(@RequestBody Login login) {
-    return this.UsuariosServiceImpl.iniciarSecion(login);
-}
+@GetMapping("/usuarios/obtenerUsuario")
+public Usuarios obtenerUsuario( Long idusuario ) {
+    return this.UsuariosServiceImpl.obtenerUsuario(idusuario);
+} 
+
 
 }

@@ -62,7 +62,7 @@ public class Productos {
     private Categorias categoria;
 
 
-    @JsonIgnore
+    
     @ManyToOne
     @JoinColumn(name = "idusuario", referencedColumnName = "idusuario")
     private Usuarios usuario;

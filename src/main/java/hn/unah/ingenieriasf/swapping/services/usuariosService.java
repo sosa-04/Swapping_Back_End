@@ -9,4 +9,6 @@ public interface usuariosService {
 
     public Usuarios iniciarSecion( Login login );
 
+    public Usuarios obtenerUsuario( Long idusuario );
+
 }

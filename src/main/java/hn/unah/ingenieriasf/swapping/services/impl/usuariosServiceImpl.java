@@ -51,5 +51,11 @@ public class usuariosServiceImpl implements usuariosService{
         }
         return null;
     }
+
+
+    @Override
+    public Usuarios obtenerUsuario(Long idusuario) {
+        return this.UsuariosRepositorie.findById(idusuario).get();
+    }
     
 }

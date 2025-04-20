@@ -31,4 +31,9 @@ public class usuariosController {
     public Usuarios iniciarSecion( Login login  ) {
         return this.UsuariosServiceImpl.iniciarSecion ( login );
     }
+
+    @GetMapping("/usuarios/obtenerUsuario")
+    public Usuarios obtenerUsuario( Long idusuario ) {
+        return this.UsuariosServiceImpl.obtenerUsuario(idusuario);
+    } 
 }

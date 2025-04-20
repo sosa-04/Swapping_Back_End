@@ -31,4 +31,9 @@ public class productosServiceImpl implements productosService {
     public Productos productosXid(Long idproducto) {
         return this.ProductosRepositorie.findById(idproducto).get();
     }
+
+    @Override
+    public List<Productos> obtenerProductos() {
+        return (List<Productos>) this.ProductosRepositorie.findAll();
+    }
 }

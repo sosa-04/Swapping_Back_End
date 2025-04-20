@@ -9,4 +9,6 @@ public interface productosService {
     public List<Productos> productosCategoria(Long idCategoria);
 
     public Productos productosXid(Long idproducto);
+
+    public List<Productos> obtenerProductos();
 }

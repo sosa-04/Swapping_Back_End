@@ -30,4 +30,9 @@ public class productosController {
     public Productos productosXid(@RequestParam Long idproducto) {
         return this.ProductosServiceImpl.productosXid(idproducto);
     }
+
+    @GetMapping("/productos/obtenerProductos")
+    public List<Productos> obtenerProductos() {
+        return this.ProductosServiceImpl.obtenerProductos();
+    }
 }

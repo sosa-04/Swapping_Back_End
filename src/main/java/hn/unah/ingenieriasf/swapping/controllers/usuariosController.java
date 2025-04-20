@@ -27,10 +27,15 @@ public class usuariosController {
     }
 
 // Debe ser una solicitud Post
+    // @PostMapping("/usuarios/iniciarSesion")
+    // public Usuarios iniciarSecion( Login login  ) {
+    //     return this.UsuariosServiceImpl.iniciarSecion ( login );
+    // }   
+
     @PostMapping("/usuarios/iniciarSesion")
-    public Usuarios iniciarSecion( Login login  ) {
-        return this.UsuariosServiceImpl.iniciarSecion ( login );
-    }   
+public Usuarios iniciarSesion(@RequestBody Login login) {
+    return this.UsuariosServiceImpl.iniciarSecion(login);
+}
 
 @GetMapping("/usuarios/obtenerUsuario")
 public Usuarios obtenerUsuario( Long idusuario ) {

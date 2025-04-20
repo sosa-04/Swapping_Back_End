@@ -26,11 +26,6 @@ public class usuariosController {
         return this.UsuariosServiceImpl.crearUsuario(usuario);
     }
 
-// Debe ser una solicitud Post
-    // @PostMapping("/usuarios/iniciarSesion")
-    // public Usuarios iniciarSecion( Login login  ) {
-    //     return this.UsuariosServiceImpl.iniciarSecion ( login );
-    // }   
 
     @PostMapping("/usuarios/iniciarSesion")
 public Usuarios iniciarSesion(@RequestBody Login login) {

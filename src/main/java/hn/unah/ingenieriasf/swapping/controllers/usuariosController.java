@@ -28,14 +28,18 @@ public class usuariosController {
 
 
     @PostMapping("/usuarios/iniciarSesion")
-public Usuarios iniciarSesion(@RequestBody Login login) {
-    return this.UsuariosServiceImpl.iniciarSecion(login);
-}
+        public Usuarios iniciarSesion(@RequestBody Login login) {
+        return this.UsuariosServiceImpl.iniciarSecion(login);
+    }
 
-@GetMapping("/usuarios/obtenerUsuario")
-public Usuarios obtenerUsuario( Long idusuario ) {
-    return this.UsuariosServiceImpl.obtenerUsuario(idusuario);
-} 
+    @GetMapping("/usuarios/obtenerUsuario")
+        public Usuarios obtenerUsuario( Long idusuario ) {
+        return this.UsuariosServiceImpl.obtenerUsuario(idusuario);
+    } 
 
+    @PostMapping("/usuarios/crearVendedor")
+    public Usuarios crearVendedor( @RequestBody Usuarios vendedor ) {
+        return this.UsuariosServiceImpl.crearVendedor(vendedor);
+    }
 
 }

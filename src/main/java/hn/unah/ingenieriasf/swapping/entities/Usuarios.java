@@ -60,7 +60,6 @@ public class Usuarios {
 
     private Float calificacion;
 
-    @JsonIgnore
-    @OneToMany(mappedBy = "usuario")
-    private List<FotosDNI> fotodni;
+    @OneToOne(mappedBy = "usuario")
+    private FotosDNI fotodni;
 }

@@ -11,4 +11,6 @@ public interface usuariosService {
 
     public Usuarios obtenerUsuario( Long idusuario );
 
+    public Usuarios crearVendedor(Usuarios vendedor);
+
 }

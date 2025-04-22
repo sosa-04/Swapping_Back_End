@@ -13,7 +13,7 @@ import hn.unah.ingenieriasf.swapping.services.coloresService;
 public class coloresServiceImpl implements coloresService {
 
     @Autowired
-    colorersRepositorie ColoresRepositorie;
+    private colorersRepositorie ColoresRepositorie;
 
     @Override
     public List<Colores> obtenerColores() {

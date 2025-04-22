@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -40,7 +41,7 @@ public class Productos {
     @Column(name = "productovendido", columnDefinition = "TINYINT(1)" )
     private Integer productovendido;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "idalmacenamiento", referencedColumnName = "idalmacenamiento" )
     private Almacenamientos almacenamiento;
 
@@ -48,7 +49,7 @@ public class Productos {
     @JoinColumn(name = "idcolor", referencedColumnName = "idcolor")
     private Colores color;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "idmodelo", referencedColumnName = "idmodelo")
     private Modelos modelo;
 
@@ -67,7 +68,7 @@ public class Productos {
     @JoinColumn(name = "idusuario", referencedColumnName = "idusuario")
     private Usuarios usuario;
 
-    @OneToMany(mappedBy = "producto")
+    @OneToMany(mappedBy = "producto", cascade = CascadeType.ALL)
     private List<Fotos_Productos> fotos;
 
 

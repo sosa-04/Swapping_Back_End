@@ -2,6 +2,7 @@ package hn.unah.ingenieriasf.swapping.services;
 
 import java.util.List;
 
+import hn.unah.ingenieriasf.swapping.dtos.producto;
 import hn.unah.ingenieriasf.swapping.entities.Productos;
 
 public interface productosService {
@@ -11,4 +12,8 @@ public interface productosService {
     public Productos productosXid(Long idproducto);
 
     public List<Productos> obtenerProductos();
+
+    public List<Productos> obtenerProductoxVendedor(Long idVendedor);
+
+    public Boolean guardarProducto(producto producto);
 }

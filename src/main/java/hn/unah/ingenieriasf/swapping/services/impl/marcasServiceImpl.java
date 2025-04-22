@@ -13,7 +13,7 @@ import hn.unah.ingenieriasf.swapping.services.marcasService;
 public class marcasServiceImpl implements marcasService {
 
     @Autowired
-    marcasRepositorie MarcasRepositorie;
+    private marcasRepositorie MarcasRepositorie;
 
     @Override
     public List<Marcas> obtenerMarcas() {

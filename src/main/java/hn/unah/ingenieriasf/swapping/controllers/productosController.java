@@ -5,10 +5,13 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import hn.unah.ingenieriasf.swapping.dtos.producto;
 import hn.unah.ingenieriasf.swapping.entities.Productos;
 import hn.unah.ingenieriasf.swapping.services.impl.productosServiceImpl;
 
@@ -34,5 +37,15 @@ public class productosController {
     @GetMapping("/productos/obtenerProductos")
     public List<Productos> obtenerProductos() {
         return this.ProductosServiceImpl.obtenerProductos();
+    }
+
+    @GetMapping("/productos/productosXvendedor")
+    public List<Productos> obtenerProductosxVendedor(@RequestParam Long idVendedor) {
+        return this.ProductosServiceImpl.obtenerProductoxVendedor(idVendedor);
+    }
+
+    @PostMapping("/productos/guardarProducto")
+    public Boolean guardarProducto(@RequestBody producto producto) {
+        return this.ProductosServiceImpl.guardarProducto(producto);
     }
 }

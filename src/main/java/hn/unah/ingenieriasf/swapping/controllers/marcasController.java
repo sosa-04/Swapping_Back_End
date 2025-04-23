@@ -18,7 +18,7 @@ import hn.unah.ingenieriasf.swapping.services.impl.marcasServiceImpl;
 public class marcasController {
     
     @Autowired
-    marcasServiceImpl MarcasServiceImpl;
+    private marcasServiceImpl MarcasServiceImpl;
 
     @GetMapping("/marcas/obtenerMarcas")
     public List<Marcas> obtenerMarcas() {

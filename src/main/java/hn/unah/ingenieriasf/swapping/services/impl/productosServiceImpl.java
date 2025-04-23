@@ -57,7 +57,7 @@ public class productosServiceImpl implements productosService {
 
     @Override
     public List<Productos> obtenerProductos() {
-        return (List<Productos>) this.ProductosRepositorie.findAll();
+        return (List<Productos>) this.ProductosRepositorie.findByEstado(1);
     }
 
     @Override

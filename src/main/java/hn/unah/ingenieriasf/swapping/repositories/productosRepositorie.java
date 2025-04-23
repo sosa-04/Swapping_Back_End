@@ -12,7 +12,8 @@ public interface productosRepositorie extends CrudRepository<Productos, Long> {
     
     public List<Productos> findByCategoria(Categorias categoria);
 
-    public List<Productos> findByUsuario(Usuarios usuario);
+    public List<Productos> findByUsuarioAndProductovendido(Usuarios usuario, Integer productoVendido);
 
     public List<Productos> findByEstado(Integer estado);
+
 }

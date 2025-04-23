@@ -2,6 +2,7 @@ package hn.unah.ingenieriasf.swapping.services.impl;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -107,6 +108,11 @@ public class ventasServiceImpl implements ventasService {
         facturaDTO.setNombreProducto(producto.getNombre());
 
         return facturaDTO;
+    }
+
+    @Override
+    public List<Ventas> obtenerVentas() {
+        return (List<Ventas>) this.VentasRepositorie.findAll();
     }
     
 }

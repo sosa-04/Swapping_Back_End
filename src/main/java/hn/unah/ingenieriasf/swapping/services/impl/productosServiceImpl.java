@@ -65,7 +65,7 @@ public class productosServiceImpl implements productosService {
         
         try {
             Usuarios vendedor = UsuariosRepositorie.findById(idVendedor).get();
-            return this.ProductosRepositorie.findByUsuario(vendedor);
+            return this.ProductosRepositorie.findByUsuarioAndProductovendido(vendedor, 0);
         } catch (Exception e) {
             return null;
         }
@@ -110,6 +110,62 @@ public class productosServiceImpl implements productosService {
             this.ProductosRepositorie.save(producto);
             return true;
 
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    @Override
+    public Boolean actualizarProducto(producto productoDTO) {
+        
+        try {
+            Usuarios usuario = this.UsuariosRepositorie.findById(productoDTO.getIdUsuario()).get();
+            Categorias categoria = this.CategoriasRepositorie.findById(productoDTO.getIdCategoria()).get();
+            Marcas marca = this.MarcasRepositorie.findById(productoDTO.getIdMarca()).get();
+            Colores color = this.ColorersRepositorie.findById(productoDTO.getIdColor()).get();
+            Almacenamientos almacenamiento = this.AlmacenamientosRepositorie.findById(productoDTO.getIdAlmacenamiento()).get();
+
+            String nombre = marca.getNombre() + " " + productoDTO.getModelo().getNombre();
+
+            Productos producto = new Productos();
+            producto.setNombre(nombre);
+            producto.setPrecio(productoDTO.getPrecio());
+            producto.setDescripcion(productoDTO.getDescripcion());
+            producto.setStock(productoDTO.getStock());
+            producto.setUsuario(usuario);
+            producto.setCategoria(categoria);
+            producto.setMarca(marca);
+            producto.setColor(color);
+            producto.setAlmacenamiento(almacenamiento);
+            producto.setEstado(1);
+            producto.setProductovendido(0);
+            producto.setModelo(productoDTO.getModelo());
+            
+            // agregamo el producto a la lista de fotos para poder utilizar el cascade
+            if (productoDTO.getFotos() != null && !productoDTO.getFotos().isEmpty()) {
+                List<Fotos_Productos> listaFotos = new ArrayList<>();
+                for (Fotos_Productos foto : productoDTO.getFotos()) {
+                    foto.setProducto(producto); // Relación inversa
+                    listaFotos.add(foto);
+                }
+                producto.setFotos(listaFotos);
+            }
+
+            this.ProductosRepositorie.save(producto);
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    @Override
+    public Boolean eliminarProducto(Long idProducto) {
+        try {
+            Productos producto = this.ProductosRepositorie.findById(idProducto).get();
+            producto.setEstado(0);
+            producto.setProductovendido(1); 
+            this.ProductosRepositorie.save(producto);
+            return true;
         } catch (Exception e) {
             return false;
         }

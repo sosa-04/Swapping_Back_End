@@ -16,4 +16,8 @@ public interface productosService {
     public List<Productos> obtenerProductoxVendedor(Long idVendedor);
 
     public Boolean guardarProducto(producto producto);
+
+    public Boolean actualizarProducto(producto producto);
+
+    public Boolean eliminarProducto(Long idProducto);
 }
